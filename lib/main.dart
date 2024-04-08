@@ -11,10 +11,10 @@ class XylophoneApp extends StatelessWidget {
     await audioPlayer.play(AssetSource('note$soundNumber.wav'));
   }
 
-  Widget buildKey(
-      {required Color color,
-      required int soundNumber,
-      required double height}) {
+  Widget buildKey({
+    required Color color,
+    required int soundNumber,
+  }) {
     return GestureDetector(
       onTap: () {
         playSound(soundNumber);
@@ -35,70 +35,30 @@ class XylophoneApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
-          child: Center(
-            child: Column(
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Image.asset(
-                        'readme-asset/1.png',
-                        height: 400,
-                        width: 200,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const SizedBox(width: 30),
-                    buildKey(
-                      color: Colors.red,
-                      soundNumber: 1,
-                      height: MediaQuery.of(context).size.width,
-                    ),
-                    buildKey(
-                      color: Colors.orange,
-                      soundNumber: 2,
-                      height: MediaQuery.of(context).size.width,
-                    ),
-                    buildKey(
-                      color: Colors.yellow,
-                      soundNumber: 3,
-                      height: MediaQuery.of(context).size.width,
-                    ),
-                    buildKey(
-                      color: Colors.green,
-                      soundNumber: 4,
-                      height: MediaQuery.of(context).size.width,
-                    ),
-                    buildKey(
-                      color: Colors.teal,
-                      soundNumber: 5,
-                      height: MediaQuery.of(context).size.width,
-                    ),
-                    buildKey(
-                      color: Colors.blue,
-                      soundNumber: 6,
-                      height: MediaQuery.of(context).size.width,
-                    ),
-                    buildKey(
-                      color: Colors.purple,
-                      soundNumber: 7,
-                      height: MediaQuery.of(context).size.width,
-                    ),
-                    buildKey(
-                      color: Colors.white,
-                      soundNumber: 8,
-                      height: MediaQuery.of(context).size.width,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+          child: Column(
+            children: [
+              Image.asset(
+                'readme-asset/1.png',
+                height: 400,
+                width: 200,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildKey(color: Colors.red, soundNumber: 1),
+                  buildKey(color: Colors.orange, soundNumber: 2),
+                  buildKey(color: Colors.yellow, soundNumber: 3),
+                  buildKey(color: Colors.green, soundNumber: 4),
+                  buildKey(color: Colors.teal, soundNumber: 5),
+                  buildKey(color: Colors.blue, soundNumber: 6),
+                  buildKey(color: Colors.purple, soundNumber: 7),
+                  buildKey(color: Colors.greenAccent, soundNumber: 8),
+                ],
+              ),
+            ],
           ),
         ),
       ),
